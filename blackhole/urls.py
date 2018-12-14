@@ -16,6 +16,7 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from django.views.generic import TemplateView
+from api import views as api_views
 from core import views
 
 urlpatterns = [
@@ -29,4 +30,5 @@ urlpatterns = [
         TemplateView.as_view(template_name='contact.html'),
         name='contact'),
     path('admin/', admin.site.urls),
+    path('api/posts/', api_views.post_list, name='api_post_list')
 ]

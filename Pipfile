@@ -13,6 +13,7 @@ django = "*"
 django-debug-toolbar = "*"
 psycopg2 = "*"
 django-extensions = "*"
+djangorestframework = "*"
 
 [requires]
 python_version = "3.7"

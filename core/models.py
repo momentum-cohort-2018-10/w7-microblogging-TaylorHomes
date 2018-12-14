@@ -16,6 +16,8 @@ class Follow(models.Model):
 
 class Post(models.Model):
     title = models.CharField(max_length=255, unique=True)
+    user = models.ForeignKey(to=User, on_delete=models.CASCADE, null=True)
+    body = models.CharField(max_length=255, null=True)
     voted_users = models.ManyToManyField(
         to=User, through='Vote', related_name='user_votes')
     score = models.IntegerField(default=0)

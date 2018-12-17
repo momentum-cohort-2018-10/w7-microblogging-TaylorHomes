@@ -10,5 +10,16 @@ class PostAdmin(admin.ModelAdmin):
     list_display = ("user", "title", "body")
 
 
+class FollowersInline(admin.StackedInline):
+    model = Follow
+    fk_name = "follows_from"
+    fields = ("follows_to", )
+
+
+class UserAdmin(admin.ModelAdmin):
+    fields = ('username', 'email')
+    inlines = [FollowersInline]
+
+
 admin.site.register(Post, PostAdmin)
-admin.site.register(User)
+admin.site.register(User, UserAdmin)
